@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# MMR NFT Marketplace
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](screenshot.jpg)
 
-## Available Scripts
+Full Web3 Mint Website for a RoboPunks NFT collection.
 
-In the project directory, you can run:
+Includes the Smart Contract deployed on the Goerli test network and the Front End Mint Website.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The followings are required for this project:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Node.js installed on your machine
+2. Metamask wallet extension installed as a browser extension
 
-### `npm test`
+### The Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a full stack application using:
 
-### `npm run build`
+- **Web application framework** - [React](https://reactjs.org/)
+- **Solidity development environment** - [Hardhat](https://hardhat.org/)
+- **Ethereum RPC Provider** - [Infura](https://infura.io/)
+- **UI component library** - [Chakra UI](https://chakra-ui.com/)
+- **Ethereum Web Client Library** - [Ethers.js](https://docs.ethers.io/v5/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running the Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Hardhat configuration is set up for a deployment on the Goerli test network.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To deploy the smart contract, create a `.env` file at the root of the project using the template provided in the project. You will need to get:
 
-### `npm run eject`
+- A RPC Endpoint URL from Infura (Goerli Network)
+- A [Etherscan](https://etherscan.io/) API Key
+- The Private Key from your Metamask deployer account
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Then you can run the following commands to deploy on the Goerly test network:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+npx hardhat clean
+npx hardhat compile
+npx hardhat run scripts/deployRoboPunksNFT.js --network goerly
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+When the deployment is complete, the CLI should print out the addresses of the contracts that were deployed. You can verify the contract on Etherscan by running the following command, replacing the address of the deployed contract:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+npx hardhat verify --network goerly <deployed-contract-address>
+```
 
-## Learn More
+### Launching the application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+npm run start
+```
