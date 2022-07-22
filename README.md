@@ -1,4 +1,4 @@
-# MMR NFT Marketplace
+# MMR Web3 Mint Website
 
 ![](screenshot.jpg)
 
